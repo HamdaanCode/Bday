@@ -2,7 +2,7 @@
 //  CONFIG  —  edit these later
 // ============================================================
 const CONFIG = {
-  password: "ambre",
+  password: "idonthaveone",
 
   // birthday — midnight Paris time (CEST, UTC+2 in May)
   birthday: new Date("2026-05-04T00:00:00+02:00"),
@@ -95,6 +95,7 @@ form.addEventListener("submit", (e) => {
     unlock();
   } else {
     errorEl.classList.add("show");
+    document.getElementById("gate-hint-2")?.classList.remove("hidden");
     input.value = "";
     input.focus();
     winLogin.animate(
