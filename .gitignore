@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# personal / source files (not needed for the deployed site)
+/deets.tct
+/emojis/
+/emojis-tmp/
+
+# original source videos / images at the project root (already copied into assets/ or photos/)
+/0503 (1)(3).mov
+/0503 (1)(4).mov
+/DAKEEZ & Afios - CHAMPAGNE CHERRY.mp4
+/Untitled design.mp4
+/Untitled design.png
+/Untitled design (1).png
+/Untitled design (2).png
+/Untitled design (3).png
+/Untitled design (4).png
+/Untitled design (6).png
+/Untitled design (7).png
+/image.png
+/images (1).jpeg
+/5120x1440-windows-original-background-v0-j8s0idew2w8c1.webp
+/happy-birthday.gif
+/william Cody Wise - Its My Birthday.mp3
+/YTDown_YouTube_DAKEEZ-Afios-Champagne-Cherry-Dance-Vide_Media_6izJL6CW9V4_009_128k.mp3
+/IMG_2820.PNG
+/IMG_4664.PNG
+/IMG_5993.HEIC
+/IMG_6020.HEIC
+/IMG_7067.JPG
+/IMG_8708.HEIC
