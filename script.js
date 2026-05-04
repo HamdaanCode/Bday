@@ -271,6 +271,54 @@ function autoplaySongOnScroll() {
   io.observe(section);
 }
 
+// ---------- SPOTIFY PLAYER UI ----------
+function setupSpotifyPlayer() {
+  const song = document.getElementById("song");
+  const playBtn = document.getElementById("sp-play");
+  const playIcon = document.getElementById("sp-play-icon");
+  const fill = document.getElementById("sp-fill");
+  const thumb = document.getElementById("sp-thumb");
+  const bar = document.getElementById("sp-bar");
+  const currentEl = document.getElementById("sp-current");
+  const totalEl = document.getElementById("sp-total");
+  if (!song || !playBtn) return;
+
+  const fmt = (s) => {
+    if (!isFinite(s) || s < 0) return "0:00";
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60).toString().padStart(2, "0");
+    return `${m}:${sec}`;
+  };
+  const setIcon = (playing) => {
+    playIcon.innerHTML = playing
+      ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+      : '<polygon points="6 4 20 12 6 20 6 4"/>';
+  };
+
+  playBtn.addEventListener("click", () => {
+    if (song.paused) song.play().catch(() => {});
+    else song.pause();
+  });
+  song.addEventListener("play",  () => setIcon(true));
+  song.addEventListener("pause", () => setIcon(false));
+  song.addEventListener("ended", () => setIcon(false));
+  song.addEventListener("loadedmetadata", () => {
+    totalEl.textContent = fmt(song.duration);
+  });
+  song.addEventListener("timeupdate", () => {
+    const pct = song.duration ? (song.currentTime / song.duration) * 100 : 0;
+    fill.style.width = pct + "%";
+    thumb.style.left = pct + "%";
+    currentEl.textContent = fmt(song.currentTime);
+  });
+  bar.addEventListener("click", (e) => {
+    const rect = bar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    if (song.duration) song.currentTime = ratio * song.duration;
+  });
+}
+setupSpotifyPlayer();
+
 function scatterMainPageDecos() {
   const site = document.querySelector(".site");
   if (!site || site.dataset.decoed) return;
