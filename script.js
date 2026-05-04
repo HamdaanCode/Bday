@@ -2,7 +2,7 @@
 //  CONFIG  —  edit these later
 // ============================================================
 const CONFIG = {
-  password: "amber",
+  password: "ambre",
 
   // birthday — midnight Paris time (CEST, UTC+2 in May)
   birthday: new Date("2026-05-04T00:00:00+02:00"),
