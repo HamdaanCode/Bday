@@ -118,11 +118,13 @@ body::before {
   top: 0; left: 0;
   padding: 12px 10px;
   display: grid;
-  grid-template-columns: 80px;
-  grid-auto-rows: 80px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, 80px);
+  grid-auto-columns: 80px;
   gap: 4px;
-  max-height: calc(100% - 36px);
-  overflow: visible;
+  height: calc(100% - 36px);
+  width: auto;
+  overflow: hidden;
 }
 .win-icon {
   background: transparent;
