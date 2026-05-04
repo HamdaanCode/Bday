@@ -168,7 +168,8 @@ body::before {
   max-width: 76px;
 }
 
-.win-icon-special .win-icon-img svg {
+.win-icon-special .win-icon-img svg,
+.win-icon-special .win-icon-img img {
   animation: clickMePulse 1.4s ease-in-out infinite;
   transform-origin: center;
 }
